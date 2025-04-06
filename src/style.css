@@ -1,18 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --primary-color: #36f;
+  --text-color: #000;
+  --white: #fff;
 }
 
-body {
-  font-family: Roboto, sans-serif;
-  font-style: normal; /* римский стиль (не italic) */
-  font-weight: 500; /* средний вес */
-  font-stretch: normal; /* нормальная ширина */
-  text-transform: uppercase;
-}
-
-header {
+.header {
   width: 100%;
   display: flex;
   align-items: center;
@@ -24,38 +16,41 @@ header {
   margin-right: 40px;
 }
 
-nav {
+.nav {
   height: 100%;
 }
 
-ul {
+.nav-list {
   list-style: none;
   display: flex;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-li {
+.nav-item {
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-a {
+.nav-link {
   text-decoration: none;
-  color: #000;
+  color: var(--text-color);
   padding: 0 15px;
   height: 100%;
   display: flex;
   align-items: center;
   position: relative;
+  transition: color 0.3s ease;
 }
 
-a:hover {
-  color: #36f;
+.nav-link:hover {
+  color: var(--primary-color);
 }
 
 .is-active {
-  color: #36f;
+  color: var(--primary-color);
 }
 
 .is-active::after {
@@ -65,15 +60,24 @@ a:hover {
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #36f;
+  background-color: var(--primary-color);
 }
 
-a:hover::after {
+.nav-link:not(.is-active):hover::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 4px;
-  background-color: #36f;
+  height: 2px;
+  background-color: var(--primary-color);
+  opacity: 0.5;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  text-transform: uppercase;
 }
